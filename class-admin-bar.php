@@ -35,7 +35,7 @@ class JltAdminBarRemover {
      */
     function MenuPagesInit() {
         add_submenu_page(
-            'themes.php',
+            'options-general.php',
             __('Admin Bar','admin-bar'),
             __('Admin Bar','admin-bar'),
             'administrator',
@@ -56,7 +56,7 @@ class JltAdminBarRemover {
 
         <div class="wrap">
             <div class="updated" id="ab-update"></div>
-            <div id="icon-tools" class="icon32"><br /></div>
+            <div id="icon-tools" class="icon32"><br/></div>
             <h2>
                 <?php _e('Admin Bar','admin-bar'); ?>
             </h2>

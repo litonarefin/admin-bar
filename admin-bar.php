@@ -8,8 +8,8 @@
  * Author URI:  https://github.com/litonarefin/admin-bar
  * Text Domain: admin-bar
  * Domain Path: /languages/
-* License:     GPL-2.0+
- * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * License: GPLv3 or later
+ * License URI: https://www.gnu.org/licenses/gpl-3.0.html
  */
 
 // No, Direct access Sir !!!
