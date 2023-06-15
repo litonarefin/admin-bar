@@ -6,7 +6,7 @@ Requires at least: 3.1
 Tested up to: 3.1
 Stable tag: 1.0
 
-Enable or disable admin bar in frontend (Wordpress 3.1)
+Enable or disable admin bar in frontend WordPress
 
 == Description ==
 
