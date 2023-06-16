@@ -23,53 +23,61 @@ class JltAdminBarRemover {
                 add_action('show_admin_bar', '__return_false');
             }
         } else {
-            add_action('wp_ajax_update_form',  [$this, 'UpdateForm']);
-            add_action('admin_menu',  [$this,'MenuPagesInit']);
-            add_action('admin_init', [$this,'Attachments']);
-            add_action('init', [$this,'LoadTextDomain']);
+            add_action('wp_ajax_update_form',  [$this, 'update_form']);
+            add_action('admin_menu',  [$this,'menu_pages_init']);
+            add_action('admin_init', [$this,'attachments']);
+            add_action('init', [$this,'load_text_domain']);
         }
     }
 
     /**
      * Register a custom menu page.
      */
-    function MenuPagesInit() {
+    function menu_pages_init() {
         add_submenu_page(
             'options-general.php',
             __('Admin Bar','admin-bar'),
             __('Admin Bar','admin-bar'),
             'administrator',
             'admin-bar',
-            [$this,'JltAdminBarContents']
+            [$this,'jlt_admin_bar_remover_contents']
         );
     }
 
-    function Attachments() {
+    function attachments() {
         wp_register_script('admin-bar-plugin', JLT_ADMIN_BAR_PLUGIN_URL .'/js/admin-bar.js', array('jquery-form'));
         wp_enqueue_script('admin-bar-plugin');
+
+
+        // Localize Scripts
+        $admin_bar_data = array(
+            'security'         => wp_create_nonce('admin_bar_security_nonce')
+        );
+        wp_localize_script('admin-bar-plugin', 'AdminBar', $admin_bar_data);
     }
 
     // Menu Callback Function
-    function JltAdminBarContents() {
-        $option = get_option('show-ab');
+    function jlt_admin_bar_remover_contents() {
+        $option = !empty( get_option('show-ab') ) ? get_option('show-ab') : 0;
         ?>
 
         <div class="wrap">
             <div class="updated" id="ab-update"></div>
             <div id="icon-tools" class="icon32"><br/></div>
             <h2>
-                <?php _e('Admin Bar','admin-bar'); ?>
+                <?php esc_html_e('Admin Bar','admin-bar'); ?>
             </h2>
             <div class="ab-content">
                 <form id="ab-form" action="" method="post">
                     <ul class="ab-form-controlls">
                         <li>
-                            <label for="ab-show" class="ab-control-title"><?php _e('Show Admin Bar in frontend', 'admin-bar'); ?></label>
+                            <label for="ab-show" class="ab-control-title"><?php esc_html_e('Show Admin Bar in frontend', 'admin-bar'); ?></label>
                             <input value="1" class="checkbox" type="checkbox" name="ab-show" <?php echo (( (bool) $option===true)? 'checked' : null); ?> />
                         </li>
                     </ul>
                     <input type="hidden" name="action" value="update_form" />
-                    <input type="submit" class="button-primary alignleft" value="<?php _e('Save', 'admin-bar'); ?>" />
+                    <input type="submit" class="button-primary alignleft" value="<?php esc_html_e('Save', 'admin-bar'); ?>" />
+                    <?php wp_nonce_field('admin_bar_security_nonce'); ?>
                 </form>
             </div>
         </div>
@@ -82,17 +90,18 @@ class JltAdminBarRemover {
         <?php
     }
 
-    function UpdateForm() {
-        if(!empty($_POST['ab-show'])) {
+    function update_form() {
+        check_ajax_referer('admin_bar_security_nonce', 'security');
+        if(!empty($_POST['ab-show']) && isset( $_POST['ab-show'] )) {
             update_option('show-ab', true);
         } else {
             update_option('show-ab', false);
         }
-        _e('Option saved!','admin-bar');
+        esc_html_e('Option saved!','admin-bar');
         die();
     }
 
-    public function LoadTextDomain() {
+    public function load_text_domain() {
         load_plugin_textdomain( $this->textdomain , false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
     }
 
