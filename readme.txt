@@ -15,6 +15,7 @@ Enable or disable admin bar in frontend WordPress
 
 This plugin turns on or off Admin Bar in front end, for all users.
 
+This is the updated version, originally developed by @vtsvang
 
 == Installation ==
 1. Upload the Downloaded "admin-bar.zip" Folder to the `/wp-content/plugins/` directory
