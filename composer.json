@@ -1,0 +1,22 @@
+{
+    "name": "litonarefin/admin-bar",
+    "autoload": {
+        "psr-4": {
+            "JLTADMINBAR\\Inc\\": "Inc/",
+            "JLTADMINBAR\\Inc\\Admin\\": "Inc/Admin",
+            "JLTADMINBAR\\Libs\\": "Libs/",
+            "JLTADMINBAR\\Libs\\License\\": "Libs/License/"
+        },
+        "files": [
+            "Inc/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Jewel Theme",
+            "email": "support@jeweltheme.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {}
+}
