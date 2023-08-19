@@ -36,13 +36,6 @@ jobs:
       - name: Run code-spliter.js for search and replace
         run: node code-spliter.js
 
-      - name: WordPress.org plugin asset/readme update
-        uses: 10up/action-wordpress-plugin-asset-update@stable
-        env:
-          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-          # ASSETS_DIR: .wordpress-org
-          IGNORE_OTHER_FILES: true
 
       - name: WordPress Plugin Deploy
         id: deploy
@@ -57,6 +50,14 @@ jobs:
           BUILD_DIR: built/${{ secrets.SLUG }}-free
 
 
+      - name: WordPress.org plugin asset/readme update
+        uses: 10up/action-wordpress-plugin-asset-update@stable
+        env:
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          # ASSETS_DIR: .wordpress-org
+          IGNORE_OTHER_FILES: true
+          
       # - name: Upload release assets
       #   uses: actions/upload-release-asset@v1
       #   env:
