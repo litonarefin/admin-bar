@@ -4,7 +4,7 @@ Donate link: https://www.buymeacoffee.com/jeweltheme
 Tags: admin bar, admin bar remover, remove admin bar, Frontend admin bar
 Requires at least: 4.0
 Tested up to: 6.3
-Stable tag: trunk
+Stable tag: 1.0.2.1
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
