@@ -3,8 +3,8 @@ Contributors: litonice13, vtsvang, jwthemeltd
 Donate link: https://www.buymeacoffee.com/jeweltheme
 Tags: admin bar, admin bar remover, remove admin bar, Frontend admin bar
 Requires at least: 4.0
-Tested up to: 6.3
-Stable tag: 1.0.2.1
+Tested up to: 6.3.1
+Stable tag: 1.0.2.2
 Requires PHP: 5.6
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -60,6 +60,9 @@ If you like our admin-bar plugin then why not check some other plugins that deve
 
 
 == Changelog ==
+= 1.0.2.2 (12-10-2023) =
+* Updated: Blank Admin page issue fixed
+
 = 1.0.2 (18-08-2023)=
 * Updated: WordPress compatiblity checked
 

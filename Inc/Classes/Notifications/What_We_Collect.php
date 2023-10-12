@@ -90,7 +90,10 @@ if ( ! class_exists( 'What_We_Collect' ) ) {
 				?>
 				 (<?php $this->what_we_collect_link(); ?>)</p>
 				<div class="jltadminbar-wwc-content" style="display:none">
-				<?php echo sprintf( __( 'Server environment details (php, mysql, server, WordPress versions), Number of users in your site, Site language, Number of active and inactive plugins, Local or Production Site, IP Address, Site name and url, Your name and email address etc. No sensitive data is tracked. No sensitive data is tracked. Learn more about our <a href="%1$s" target="_blank"></a>privacy policy</a>, how we handle and collects your data.', 'admin-bar' ), ); ?>
+				<?php echo sprintf(
+					__( 'Server environment details (php, mysql, server, WordPress versions), Number of users in your site, Site language, Number of active and inactive plugins, Local or Production Site, IP Address, Site name and url, Your name and email address etc. No sensitive data is tracked. Learn more about our <a href="%1$s" target="_blank">Privacy Policy</a>, how we handle and collects your data.', 'admin-bar' ),
+					esc_url( 'https://jeweltheme.com/privacy-policy' )
+					); ?>
 				</div>
 			</div>
 

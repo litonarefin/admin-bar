@@ -3,7 +3,7 @@
  * Plugin Name: Admin Bar Remover
  * Plugin URI:  https://jeweltheme.com/
  * Description: Enable or disable admin bar in frontend WordPress
- * Version:     1.0.2.1
+ * Version:     1.0.2.2
  * Author:      Jewel Theme
  * Author URI:  https://jeweltheme.com
  * Text Domain: admin-bar
